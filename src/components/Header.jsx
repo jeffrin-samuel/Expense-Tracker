@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { Sun, Moon, IndianRupee } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 
 const CURRENCIES = [
   { code: 'INR', name: 'Indian Rupee', symbol: '₹' },
@@ -18,7 +18,9 @@ export const Header = ({ currency, onCurrencyChange, darkMode, onToggleDarkMode 
     <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50 flex items-center gap-3">
-          <IndianRupee className="h-10 w-10 text-slate-900 dark:text-slate-50" />
+         <span className="text-4xl font-extrabold text-slate-900 dark:text-slate-50">
+            {CURRENCIES.find(c => c.code === currency)?.symbol}
+         </span>
           Expense Tracker
         </h1>
         <p className="text-base text-slate-600 dark:text-slate-400 mt-2">
